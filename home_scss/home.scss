@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+// MixIn for Text EFFECT #1
+@mixin texteffect {
+  text-transform: uppercase;
+  background-image: linear-gradient(-225deg,
+      #c9f0eb 0%,
+      #d6b7ea 29%,
+      #d7daff 67%,
+      #d5fff1 67%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 5rem;
+}
+
+// MixIn for Text EFFECT #2
+@mixin texteffect2 {
+  text-transform: uppercase;
+  background-image: linear-gradient(-225deg,
+  #c9f0eb 0%,
+  #fccdb0 29%,
+  #a6acfa 67%,
+  #90f3d2 67%);
+      
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 5rem;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+// SCSS Starts
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+
+}
+
+#top {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#top::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  width: 100%;
+  background: linear-gradient(to top, #fff, transparent);
+  z-index: 1000;
+}
+
+#man {
+  top: inherit;
+  bottom: 0;
+}
+
+section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#text {
+  position: relative;
+  color: white;
+  font-size: 10rem;
+}
+
+#sec {
+  padding: 100px;
+  padding-bottom: 20px;
+}
+
+#sec h2 {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  color: #20496a;
+}
+
+#sec p {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  font-weight: 300;
+  color: #20496a;
+}
+
+footer {
+
+  margin-top: 30px;
+  display: flex;
+  padding: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #B0DFEA;
+}
+
+footer a {
+  color: #20496a;
+}
+
+footer a i {
+  transition: 0.2s;
+}
+
+footer a:nth-of-type(3),
+footer a:nth-of-type(4),
+footer a:nth-of-type(5) {
+  font-size: 1.3rem;
+}
+
+footer a i:hover {
+  transform: translateY(-10px);
+}
+
+// Card
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+}
+
+.card {
+
+
+  background-color: #0a1215;
+  border-radius: 24px;
+  width: 40%;
+  height: 50vh;
+  transform: rotateX(60deg) rotateZ(45deg);
+  transition: all 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+
+  // On mouse hover
+  &:hover {
+    transform: rotateX(0) rotateZ(0);
+
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+
+  // Card Header Text
+  .spantitle {
+    @include texteffect
+  }
+}
+
+#sec100 {
+  background-image: url(Blue4KBG.png);
+  min-height: 50vh;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px;
+  padding-bottom: 20px;
+
+  h2 {
+    @include texteffect2;
+    font-size: 4rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+  }
+
+  p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 300;
+    color: #ffffff;
+  }}
